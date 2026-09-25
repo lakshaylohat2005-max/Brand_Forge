@@ -14,10 +14,10 @@ const STAGES: StageName[] = [
 ];
 
 export default function Home() {
-  const [project, setProject] = useState<BrandProject>({
+  const [project, setProject] = useState<BrandProject>(() => ({
     id: typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).substring(7),
     rawIdea: ''
-  });
+  }));
   
   const [currentStage, setCurrentStage] = useState<StageName>('Understand');
   const [loading, setLoading] = useState(false);
@@ -399,7 +399,7 @@ export default function Home() {
                       <svg className="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                     </div>
                     <h4 className="font-bold text-lg">No Issues Found!</h4>
-                    <p>The AI creative director reviewed your brand identity and couldn't find any glaring issues. It's solid.</p>
+                    <p>The AI creative director reviewed your brand identity and couldn&apos;t find any glaring issues. It&apos;s solid.</p>
                   </div>
                 )
               ) : (
@@ -623,7 +623,7 @@ export default function Home() {
 
                     <div className="bg-blue-50 p-6 rounded-xl border border-blue-100">
                       <span className="text-xs font-bold text-blue-500 uppercase tracking-wider mb-2 block">Social Launch Post</span>
-                      <p className="text-gray-800 italic">"{project.launchAssets.socialPost}"</p>
+                      <p className="text-gray-800 italic">&quot;{project.launchAssets.socialPost}&quot;</p>
                     </div>
                   </div>
 

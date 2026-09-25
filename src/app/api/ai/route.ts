@@ -8,7 +8,7 @@ export async function POST(request: Request) {
   try {
     const { stage, context }: { stage: StageName; context: Partial<BrandProject> } = await request.json();
 
-    let data: any = {};
+    let data: Record<string, unknown> = {};
     
     if (stage === 'Understand') {
       const prompt = `You are an expert brand strategist. Your task is to diagnose and understand the user's raw brand idea.
@@ -228,7 +228,7 @@ Return ONLY valid JSON matching the specified schema.`;
       if (text) {
         const parsed = JSON.parse(text);
         data = {
-          challengeLog: (parsed.challengeLog || []).map((log: any) => {
+          challengeLog: (parsed.challengeLog || []).map((log: Record<string, unknown>) => {
              let originalValue = '';
              if (log.fieldToPatch === 'tagline') originalValue = context.tagline || '';
              if (log.fieldToPatch === 'onePitchLine') originalValue = context.onePitchLine || '';
