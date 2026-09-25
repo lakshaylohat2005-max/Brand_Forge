@@ -432,8 +432,9 @@ Return ONLY valid JSON matching the specified schema.`;
         case 'Consistency':
         case 'Launch':
           break; // Handled above
-      default:
-        return NextResponse.json({ error: 'Invalid stage' }, { status: 400 });
+        default:
+          return NextResponse.json({ error: 'Invalid stage' }, { status: 400 });
+      }
     }
 
     return NextResponse.json(data);
